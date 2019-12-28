@@ -7,7 +7,9 @@ public class CannonAction : MonoBehaviour
 
     public GameObject cannonballPrefab;
     public Transform spawnPosition;
-
+    float lastShotTime;
+    public float delayBetweenShots;
+    bool canShoot = true;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +20,16 @@ public class CannonAction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (lastShotTime + delayBetweenShots < Time.time)
+        {
+            canShoot = true;
+        }
+        if (Input.GetButtonDown("Fire1") && canShoot)
         {
             GameObject newCannonball = Instantiate(cannonballPrefab, spawnPosition.position, Quaternion.identity);
             newCannonball.GetComponent<Cannonball>().SetDirection(transform.localEulerAngles);
+            lastShotTime = Time.time;
+            canShoot = false;
         }
     }
 }

@@ -2,13 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cannonball : MonoBehaviour
+public class Wall : MonoBehaviour
 {
-
-    float directionX;
-    public float speed;
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +13,14 @@ public class Cannonball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector2.up * Time.deltaTime * speed);
+        
     }
 
-    public void SetDirection(Vector3 angles)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        transform.localEulerAngles = angles;
+        if (collision.CompareTag("Cannonball"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
