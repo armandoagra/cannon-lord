@@ -14,7 +14,7 @@ Online através do link: https://armandoagra.github.io/cannon-lord-build/
 Ao iniciar o jogo, é necessário clicar no botão no canto superior direito para começar a jogar. O jogador atira clicando no botão localizado no canto inferior direito.
 
 ### 2. Organização
-Conforme sugerido no documento do teste, códigos modularizados seriam um ponto positivo, portanto, os códigos do jogo estão bem separados um do outro. O projeto também está organizado de forma compreensível, com pastas que agregam arquivos de mesmo formato ou com uso similar. 
+Conforme sugerido no documento do teste, códigos modularizados seriam um ponto positivo, portanto, os códigos do jogo estão bem separados um do outro. O projeto também está organizado de forma compreensível, com pastas que agrupam arquivos de mesmo formato ou com uso similar. 
 
 ### 3. Pontos adicionais e observações
 Houve o interesse de manter algumas mecânicas básicas do jogo, já que se trata de uma réplica, portanto, o canhão continua se movendo de forma automática, sendo responsabilidade do jogador apenas atirar no momento certo. A movimentação dos inimigos também ocorre de forma similar ao do jogo original.
