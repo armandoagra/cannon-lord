@@ -6,9 +6,11 @@ public class MonsterSpawner : MonoBehaviour
 {
 
     public Transform[] spawnLocations;
-    public GameObject monsterBat;
+    public GameObject[] monsters;
     public float delay;
     float monsterSpawnTime;
+    public bool canSpawn;
+    int monsterCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class MonsterSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= monsterSpawnTime + delay)
+        if (Time.time >= monsterSpawnTime + delay && canSpawn)
         {
             SpawnMonster();
         }
@@ -26,7 +28,14 @@ public class MonsterSpawner : MonoBehaviour
 
     void SpawnMonster()
     {
-        Instantiate(monsterBat, spawnLocations[Random.Range(0, spawnLocations.Length)].position, Quaternion.identity);
+        Instantiate(monsters[Random.Range(0, monsters.Length)], spawnLocations[Random.Range(0, spawnLocations.Length)].position, Quaternion.identity);
         monsterSpawnTime = Time.time;
+        monsterCounter++;
+        if (monsterCounter > 3) { delay *= 0.8f; monsterCounter = 0; }
+    }
+
+    public void ChangeSpawnerStatus(bool status)
+    {
+        canSpawn = status;
     }
 }

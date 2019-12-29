@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CannonAction : MonoBehaviour
 {
@@ -10,11 +11,11 @@ public class CannonAction : MonoBehaviour
     float lastShotTime;
     public float delayBetweenShots;
     bool canShoot = true;
+    public Button button;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -22,14 +23,17 @@ public class CannonAction : MonoBehaviour
     {
         if (lastShotTime + delayBetweenShots < Time.time)
         {
-            canShoot = true;
+            button.interactable = true;
         }
-        if (Input.GetButtonDown("Fire1") && canShoot)
-        {
-            GameObject newCannonball = Instantiate(cannonballPrefab, spawnPosition.position, Quaternion.identity);
-            newCannonball.GetComponent<Cannonball>().SetDirection(transform.localEulerAngles);
-            lastShotTime = Time.time;
-            canShoot = false;
-        }
+    }
+
+    public void Fire()
+    {
+        GameObject newCannonball = Instantiate(cannonballPrefab, spawnPosition.position, Quaternion.identity);
+        newCannonball.GetComponent<Cannonball>().SetDirection(transform.localEulerAngles);
+        lastShotTime = Time.time;
+        canShoot = false;
+        button.interactable = false;
+        GetComponent<AudioSource>().Play();
     }
 }

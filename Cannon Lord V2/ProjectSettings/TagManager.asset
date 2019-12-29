@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Cannonball
+  - Base
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -40,6 +42,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 868158581
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: GameObjects
+    uniqueID: 4278446921
     locked: 0

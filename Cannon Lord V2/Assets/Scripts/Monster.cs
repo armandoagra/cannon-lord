@@ -5,15 +5,16 @@ using UnityEngine;
 public class Monster : MonoBehaviour
 {
 
-    float currentHp;
+    public float currentHp;
     int direction;
     public float horizontalSpeed;
     public float verticalSpeed;
     public int points;
+    Animator anim;
 
     private void Awake()
     {
-        //direction = Random.
+        anim = GetComponent<Animator>();
         direction = Random.Range(1, 3);
         if (direction % 2 == 0)
         {
@@ -42,6 +43,9 @@ public class Monster : MonoBehaviour
         else if (collision.CompareTag("Wall"))
         {
             direction = direction * -1;
+        } else if (collision.CompareTag("Base"))
+        {
+            GameManager.instance.GameOver();
         }
     }
 
@@ -56,8 +60,15 @@ public class Monster : MonoBehaviour
 
     void Die()
     {
+        GetComponent<AudioSource>().Play();
+        anim.SetTrigger("Death");
+        verticalSpeed = 0;
+        horizontalSpeed = 0;
         GameManager.instance.AddScore(points);
-        Destroy(gameObject);
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<ParticleSystem>().Play();
+        Destroy(gameObject, 1f);
+
 
     }
 }

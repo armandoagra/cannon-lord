@@ -8,7 +8,6 @@ public class Cannonball : MonoBehaviour
     float directionX;
     public float speed;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +23,13 @@ public class Cannonball : MonoBehaviour
     public void SetDirection(Vector3 angles)
     {
         transform.localEulerAngles = angles;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
