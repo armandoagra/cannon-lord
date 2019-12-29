@@ -4,8 +4,11 @@ Projeto desenvolvido para o teste para desenvolvedor Unity3D (Estágio BluePixel
 ### 1. Como executar
 O jogo pode ser executado de três formas:
 Baixando o executável para PC através do link: https://drive.google.com/open?id=1EAW3j1G7fmC0Q1kGjCTwtwUN52y1Lo2R
+
 Baixando o .apk para Android através do link: https://drive.google.com/open?id=1G3XbCpeJFRunk6jIJ21A6VDFsKpg5rHZ
+
 Online através do link: https://armandoagra.github.io/cannon-lord-build/
+
 
 ### 1.1 Como jogar
 Ao iniciar o jogo, é necessário clicar no botão no canto superior direito para começar a jogar. O jogador atira clicando no botão localizado no canto inferior direito.
